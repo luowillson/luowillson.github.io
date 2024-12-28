@@ -48,7 +48,7 @@ body {
    }
 
 .about {
-    margin: 30%;
+    width: 40%;
     text-align: justify;
 }
 
@@ -57,6 +57,10 @@ body {
     margin: 0;
 }
 
+.contact h1{
+    text-align: center;
+    margin: 0;
+}
 
 .links{
     display: flex;
