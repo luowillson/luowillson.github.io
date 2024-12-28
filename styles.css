@@ -52,6 +52,12 @@ body {
     text-align: justify;
 }
 
+@media (max-width: 768px) {
+    .about {
+        width: 80vw; /* Reduce spacing on smaller screens */
+    }
+}
+
 .about h1{
     text-align: center;
     margin: 0;
