@@ -48,7 +48,7 @@ body {
    }
 
 .about {
-    width: 40%;
+    width: 40vw;
     text-align: justify;
 }
 
@@ -66,7 +66,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center; /* Center links horizontally */
-    gap: 5rem;
+    gap: 5vw;
     margin-top: 1rem;
 }
 
