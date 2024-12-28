@@ -175,7 +175,17 @@ body {
     transition: transform 0.3s ease, text-decoration-color 0.3s ease;
 }
 
+.booklist h1{
+    text-align: center;
+}
 
+.projects h1{
+    text-align: center;
+}
+
+.blog h1{
+    text-align: center;
+}
 
 /* pulse
 @keyframes pulse {
