@@ -194,6 +194,16 @@ body {
     text-align: center;
 }
 
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.7rem;
+    color: #888;
+}
+
 /* pulse */
 @keyframes pulse {
     0%,
