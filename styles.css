@@ -169,17 +169,25 @@ body {
 
 .navbar {
     position: absolute;
-    top: 0;
-    left: 0;
-    margin: 0.8rem;
+    top: 2rem;
+    left: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
 }
 
-.navbar a{
+.navbar-text-link {
     color: black;
     font-size: 1.1rem;
     text-decoration: none;
-    display: inline-block; /* Required for scaling */
-    transition: transform 0.3s ease, text-decoration-color 0.3s ease;
+    position: relative;
+    padding-bottom: 2px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-img-link img {
+    height: 40px;
+    vertical-align: middle;
 }
 
 .booklist h1{
