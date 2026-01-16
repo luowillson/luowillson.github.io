@@ -594,6 +594,27 @@ body {
         padding: 0.75rem 1rem;
         max-width: 90%;
     }
+    
+    .lightbox-prev,
+    .lightbox-next {
+        width: 30px;
+        height: 30px;
+        padding: 0.5rem;
+    }
+    
+    .lightbox-prev::before,
+    .lightbox-next::before {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .lightbox-prev {
+        left: 1rem;
+    }
+    
+    .lightbox-next {
+        right: 1rem;
+    }
 
     /* Touch-friendly hover effects */
     .scale:hover {
@@ -751,6 +772,55 @@ body {
 
 .lightbox-close:hover {
     color: rgb(246, 86, 147);
+}
+
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    padding: 1rem;
+    user-select: none;
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+}
+
+.lightbox-prev::before,
+.lightbox-next::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    transition: border-color 0.3s ease;
+}
+
+.lightbox-prev::before {
+    transform: rotate(-45deg);
+    right: 5px;
+    top: 5px;
+}
+
+.lightbox-next::before {
+    transform: rotate(135deg);
+    left: 5px;
+    top: 5px;
+}
+
+.lightbox-prev:hover::before,
+.lightbox-next:hover::before {
+    border-color: rgb(246, 86, 147);
+}
+
+.lightbox-prev {
+    left: 2rem;
+}
+
+.lightbox-next {
+    right: 2rem;
 }
 
 .lightbox-caption {
