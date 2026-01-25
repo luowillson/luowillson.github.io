@@ -29,6 +29,7 @@ body {
     margin:0;
     padding: 0;
     font-size: 2rem;
+    font-family: "DM Serif Text", serif;
 }
 
 .content p{
@@ -36,6 +37,7 @@ body {
     margin: 0;
     padding: 0;
     margin-bottom: 1rem;
+    font-family: "DM Serif Text", serif;
 }
 
 .content a{
@@ -44,6 +46,7 @@ body {
     text-decoration: none;
     transition: transform 0.3s ease, text-decoration-color 0.3s ease; /* Add transition for transform */
     display: inline-block;
+    font-family: "DM Serif Text", serif;
 }
 
 
@@ -58,6 +61,12 @@ body {
     text-align: justify;
 }
 
+.about p {
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 400;
+    margin-top: 0;
+}
+
 @media (max-width: 768px) {
     .about {
         width: 80vw; /* Reduce spacing on smaller screens */
@@ -66,12 +75,18 @@ body {
 
 .about h1{
     text-align: center;
-    margin: 0;
+    margin: 0 0 0.3rem 0;
+    font-family: "DM Serif Text", serif;
 }
 
 .contact h1{
     text-align: center;
     margin: 0;
+}
+
+.contact p {
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 400;
 }
 
 .links{
@@ -89,6 +104,7 @@ body {
     display: inline-block; /* Required for scaling */
     position: relative;
     transition: transform 0.3s ease, text-decoration-color 0.3s ease;
+    font-family: "DM Serif Text", serif;
 }
 
 .scale::before {
@@ -136,6 +152,7 @@ body {
     margin: 0 0 1.5rem 0;
     font-size: 2rem;
     color: black;
+    font-family: "DM Serif Text", serif;
 }
 
 .notes-section {
@@ -152,6 +169,8 @@ body {
     margin: 0 0 0.5rem 0;
     padding-bottom: 0.25rem;
     border-bottom: 1px solid #e0e0e0;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 500;
 }
 
 .section-content .grid-container:first-child {
@@ -166,6 +185,8 @@ body {
     margin: 0;
     font-size: 1.15rem;
     color: rgb(99, 99, 99);
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 400;
 }
 
 .notes-link {
@@ -183,6 +204,8 @@ body {
 .notes-link span {
     color: black;
     font-size: 1rem;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 400;
 }
 
 .grid-container {
@@ -208,19 +231,30 @@ body {
     padding: 0.25rem;
 }
 
+.center b {
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 600;
+}
+
 .center span {
     font-size: 1rem;
     color: black;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 400;
 }
 
 .right {
     text-align: right;
     padding: 0.25rem;
     color: rgb(99, 99, 99);
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 400;
 }
 
 .notes b{
     color: rgb(99, 99, 99);
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 600;
 }
 
 .navbar {
@@ -238,6 +272,7 @@ body {
     text-decoration: none;
     position: relative;
     transition: transform 0.3s ease;
+    font-family: "DM Serif Text", serif;
 }
 
 .navbar-img-link img {
@@ -247,6 +282,7 @@ body {
 
 .booklist h1{
     text-align: center;
+    font-family: "DM Serif Text", serif;
 }
 
 .projects {
@@ -263,6 +299,7 @@ body {
     margin: 0 0 1.5rem 0;
     font-size: 2rem;
     color: black;
+    font-family: "DM Serif Text", serif;
 }
 
 .projects-content {
@@ -310,6 +347,8 @@ body {
     font-size: 1.3rem;
     color: black;
     flex: 1;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 500;
 }
 
 .project-date {
@@ -317,6 +356,8 @@ body {
     color: rgb(99, 99, 99);
     font-style: italic;
     white-space: nowrap;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 400;
 }
 
 .project-description {
@@ -325,6 +366,8 @@ body {
     line-height: 1.6;
     color: #444;
     text-align: justify;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 400;
 }
 
 /* Mobile Responsive Design */
@@ -683,6 +726,7 @@ body {
     font-size: 2rem;
     color: black;
     text-align: center;
+    font-family: "DM Serif Text", serif;
 }
 
 .photo-gallery {
@@ -840,10 +884,17 @@ body {
 
 .blog h1{
     text-align: center;
+    font-family: "DM Serif Text", serif;
 }
 
 .booklist {
     text-align: center;
+}
+
+.booklist p,
+.booklist p1 {
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 400;
 }
 
 footer {
@@ -853,7 +904,9 @@ footer {
     text-align: center;
     padding: 1rem 0;
     font-size: 0.7rem;
-    color: #888;
+    color: #d0d0d0;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 400;
 }
 
 /* pulse */
