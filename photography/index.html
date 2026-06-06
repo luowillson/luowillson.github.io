@@ -19,49 +19,50 @@
     </div>
     <div class="photos-container">
         <h1>Photography</h1>
+        <p class="camera-info">Shot on Fujifilm X100VI</p>
         <div class="photo-gallery">
             <div class="photo-item">
-                <img src="../photos/thumbs/DSCF0274.JPG" data-full="../photos/DSCF0274.JPG" alt="Photo 1" loading="lazy" decoding="async">
+                <img src="../photos/thumbs/DSCF0274.JPG" data-full="../photos/lightbox/DSCF0274.JPG" alt="Photo 1" loading="lazy" decoding="async">
                 <div class="photo-caption">1/15/2026</div>
             </div>
             <div class="photo-item">
-                <img src="../photos/thumbs/DSCF0293.JPG" data-full="../photos/DSCF0293.JPG" alt="Photo 2" loading="lazy" decoding="async">
+                <img src="../photos/thumbs/DSCF0293.JPG" data-full="../photos/lightbox/DSCF0293.JPG" alt="Photo 2" loading="lazy" decoding="async">
                 <div class="photo-caption">1/15/2026</div>
             </div>
             <div class="photo-item">
-                <img src="../photos/thumbs/DSCF0283.JPG" data-full="../photos/DSCF0283.JPG" alt="Photo 3" loading="lazy" decoding="async">
+                <img src="../photos/thumbs/DSCF0283.JPG" data-full="../photos/lightbox/DSCF0283.JPG" alt="Photo 3" loading="lazy" decoding="async">
                 <div class="photo-caption">1/15/2026</div>
             </div>
             <div class="photo-item">
-                <img src="../photos/thumbs/DSCF0380.JPG" data-full="../photos/DSCF0380.JPG" alt="Photo 4" loading="lazy" decoding="async">
+                <img src="../photos/thumbs/DSCF0380.JPG" data-full="../photos/lightbox/DSCF0380.JPG" alt="Photo 4" loading="lazy" decoding="async">
                 <div class="photo-caption">1/17/2026</div>
             </div>
             <div class="photo-item">
-                <img src="../photos/thumbs/DSCF0738.JPG" data-full="../photos/DSCF0738.JPG" alt="Photo 5" loading="lazy" decoding="async">
+                <img src="../photos/thumbs/DSCF0738.JPG" data-full="../photos/lightbox/DSCF0738.JPG" alt="Photo 5" loading="lazy" decoding="async">
                 <div class="photo-caption">3/6/2026</div>
             </div>
             <div class="photo-item">
-                <img src="../photos/thumbs/DSCF0816.JPG" data-full="../photos/DSCF0816.JPG" alt="Photo 6" loading="lazy" decoding="async">
+                <img src="../photos/thumbs/DSCF0816.JPG" data-full="../photos/lightbox/DSCF0816.JPG" alt="Photo 6" loading="lazy" decoding="async">
                 <div class="photo-caption">3/7/2026</div>
             </div>
             <div class="photo-item">
-                <img src="../photos/thumbs/DSCF0869.JPG" data-full="../photos/DSCF0869.JPG" alt="Photo 7" loading="lazy" decoding="async">
+                <img src="../photos/thumbs/DSCF0869.JPG" data-full="../photos/lightbox/DSCF0869.JPG" alt="Photo 7" loading="lazy" decoding="async">
                 <div class="photo-caption">3/7/2026</div>
             </div>
             <div class="photo-item">
-                <img src="../photos/thumbs/DSCF0926.JPG" data-full="../photos/DSCF0926.JPG" alt="Photo 8" loading="lazy" decoding="async">
+                <img src="../photos/thumbs/DSCF0926.JPG" data-full="../photos/lightbox/DSCF0926.JPG" alt="Photo 8" loading="lazy" decoding="async">
                 <div class="photo-caption">3/22/2026</div>
             </div>
             <div class="photo-item">
-                <img src="../photos/thumbs/DSCF0966.JPG" data-full="../photos/DSCF0966.JPG" alt="Photo 9" loading="lazy" decoding="async">
+                <img src="../photos/thumbs/DSCF0966.JPG" data-full="../photos/lightbox/DSCF0966.JPG" alt="Photo 9" loading="lazy" decoding="async">
                 <div class="photo-caption">3/22/2026</div>
             </div>
             <div class="photo-item">
-                <img src="../photos/thumbs/DSCF0987.JPG" data-full="../photos/DSCF0987.JPG" alt="Photo 10" loading="lazy" decoding="async">
+                <img src="../photos/thumbs/DSCF0987.JPG" data-full="../photos/lightbox/DSCF0987.JPG" alt="Photo 10" loading="lazy" decoding="async">
                 <div class="photo-caption">3/22/2026</div>
             </div>
             <div class="photo-item">
-                <img src="../photos/thumbs/DSCF0991.JPG" data-full="../photos/DSCF0991.JPG" alt="Photo 11" loading="lazy" decoding="async">
+                <img src="../photos/thumbs/DSCF0991.JPG" data-full="../photos/lightbox/DSCF0991.JPG" alt="Photo 11" loading="lazy" decoding="async">
                 <div class="photo-caption">3/22/2026</div>
             </div>
         </div>
@@ -72,10 +73,10 @@
     
     <!-- Lightbox Modal -->
     <div id="lightbox" class="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <span class="lightbox-prev"></span>
-        <span class="lightbox-next"></span>
-        <img class="lightbox-content" id="lightbox-img">
+        <button class="lightbox-close" type="button" aria-label="Close photo viewer">&times;</button>
+        <button class="lightbox-prev" type="button" aria-label="Previous photo"></button>
+        <button class="lightbox-next" type="button" aria-label="Next photo"></button>
+        <img class="lightbox-content" id="lightbox-img" alt="">
         <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
     
@@ -83,11 +84,8 @@
         window.addEventListener('load', function() {
             document.body.style.opacity = 1;
 
-            // Preload full-res images in the background after page is visible
-            document.querySelectorAll('.photo-item img[data-full]').forEach(function(img) {
-                const preload = new Image();
-                preload.src = img.dataset.full;
-            });
+            const warmWhenIdle = window.requestIdleCallback || ((callback) => window.setTimeout(callback, 500));
+            warmWhenIdle(() => warmPhotoSequence(0));
         });
         
         // Lightbox functionality
@@ -99,57 +97,167 @@
         const nextBtn = document.querySelector('.lightbox-next');
         
         let currentPhotoIndex = 0;
+        let isTransitioning = false;
         const photoItems = Array.from(document.querySelectorAll('.photo-item img'));
-        
-        function showPhoto(index) {
-            if (index < 0) index = photoItems.length - 1;
-            if (index >= photoItems.length) index = 0;
-            
-            currentPhotoIndex = index;
+        const decodedPhotoCache = new Map();
+
+        function normalizePhotoIndex(index) {
+            if (index < 0) return photoItems.length - 1;
+            if (index >= photoItems.length) return 0;
+            return index;
+        }
+
+        function getPhotoData(index) {
             const img = photoItems[index];
-            lightboxImg.src = img.dataset.full || img.src;
-            const caption = img.nextElementSibling.textContent;
-            lightboxCaption.textContent = caption;
+            return {
+                src: img.dataset.full || img.src,
+                alt: img.alt || 'Photography image',
+                caption: img.nextElementSibling ? img.nextElementSibling.textContent : ''
+            };
+        }
+
+        function decodePhoto(src) {
+            if (decodedPhotoCache.has(src)) {
+                return decodedPhotoCache.get(src);
+            }
+
+            const preview = new Image();
+            preview.decoding = 'async';
+            preview.src = src;
+
+            const fallbackReady = new Promise((resolve) => {
+                preview.onload = () => resolve(preview);
+                preview.onerror = () => resolve(preview);
+            });
+
+            const decoded = preview.decode
+                ? preview.decode().then(() => preview).catch(() => fallbackReady)
+                : fallbackReady;
+
+            decodedPhotoCache.set(src, decoded);
+            return decoded;
+        }
+
+        function preloadPhoto(index) {
+            return decodePhoto(getPhotoData(index).src);
+        }
+
+        function warmPhotoSequence(startIndex) {
+            const sequence = [
+                startIndex,
+                startIndex + 1,
+                startIndex - 1,
+                ...photoItems.map((_, index) => index)
+            ];
+            const uniqueSequence = [...new Set(sequence.map(normalizePhotoIndex))];
+
+            uniqueSequence.reduce((chain, index) => {
+                return chain.then(() => preloadPhoto(index));
+            }, Promise.resolve());
+        }
+        
+        function setPhoto(index) {
+            currentPhotoIndex = index;
+            const photo = getPhotoData(index);
+            lightboxImg.src = photo.src;
+            lightboxImg.alt = photo.alt;
+            lightboxCaption.textContent = photo.caption;
+        }
+
+        function openLightbox(index) {
+            setPhoto(index);
+            lightbox.classList.add('is-open');
+            document.body.classList.add('lightbox-open');
+            warmPhotoSequence(index);
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('is-open', 'is-loading');
+            document.body.classList.remove('lightbox-open');
+            lightboxImg.classList.remove('is-exiting-next', 'is-exiting-prev', 'is-entering-next', 'is-entering-prev');
+            lightboxCaption.classList.remove('is-changing');
+            isTransitioning = false;
+        }
+
+        async function showPhoto(index, direction = 0) {
+            const nextIndex = normalizePhotoIndex(index);
+
+            if (!lightbox.classList.contains('is-open')) {
+                setPhoto(nextIndex);
+                return;
+            }
+
+            if (isTransitioning || nextIndex === currentPhotoIndex) {
+                return;
+            }
+
+            isTransitioning = true;
+            lightbox.classList.add('is-loading');
+            await preloadPhoto(nextIndex);
+            lightbox.classList.remove('is-loading');
+
+            const movement = direction < 0 ? 'prev' : 'next';
+            const exitClass = `is-exiting-${movement}`;
+            const enterClass = `is-entering-${movement}`;
+
+            lightboxImg.classList.add(exitClass);
+            lightboxCaption.classList.add('is-changing');
+
+            window.setTimeout(() => {
+                setPhoto(nextIndex);
+                lightboxImg.classList.remove(exitClass);
+                lightboxImg.classList.add(enterClass);
+
+                lightboxImg.offsetWidth;
+
+                requestAnimationFrame(() => {
+                    lightboxImg.classList.remove(enterClass);
+                    lightboxCaption.classList.remove('is-changing');
+
+                    window.setTimeout(() => {
+                        isTransitioning = false;
+                    }, 520);
+                });
+            }, 180);
         }
         
         // Add click event to all photo items
         photoItems.forEach((img, index) => {
             img.addEventListener('click', function() {
-                lightbox.style.display = 'flex';
-                showPhoto(index);
+                openLightbox(index);
             });
         });
         
         // Navigation buttons
         prevBtn.addEventListener('click', () => {
-            showPhoto(currentPhotoIndex - 1);
+            showPhoto(currentPhotoIndex - 1, -1);
         });
         
         nextBtn.addEventListener('click', () => {
-            showPhoto(currentPhotoIndex + 1);
+            showPhoto(currentPhotoIndex + 1, 1);
         });
         
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (lightbox.style.display === 'flex') {
+            if (lightbox.classList.contains('is-open')) {
                 if (e.key === 'ArrowLeft') {
-                    showPhoto(currentPhotoIndex - 1);
+                    showPhoto(currentPhotoIndex - 1, -1);
                 } else if (e.key === 'ArrowRight') {
-                    showPhoto(currentPhotoIndex + 1);
+                    showPhoto(currentPhotoIndex + 1, 1);
                 } else if (e.key === 'Escape') {
-                    lightbox.style.display = 'none';
+                    closeLightbox();
                 }
             }
         });
         
         // Close lightbox when clicking X or outside the image
         closeBtn.addEventListener('click', () => {
-            lightbox.style.display = 'none';
+            closeLightbox();
         });
         
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) {
-                lightbox.style.display = 'none';
+                closeLightbox();
             }
         });
     </script>
